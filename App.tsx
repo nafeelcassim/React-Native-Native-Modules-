@@ -12,6 +12,7 @@ import {
   StatusBar,
   useColorScheme,
   Text,
+  Button,
 } from 'react-native';
 
 import {
@@ -33,6 +34,10 @@ function App(): React.JSX.Element {
     console.log(storedValue ?? '');
   }, []);
 
+  
+  const setItem = () => {
+    NativeLocalStorage?.setItem('myValue', 'myKey');
+  }
 
 
   return (
@@ -42,6 +47,7 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <Text>Native Modules</Text>
+      <Button title="Set Item" onPress={setItem} />
     </SafeAreaView>
   );
 }
